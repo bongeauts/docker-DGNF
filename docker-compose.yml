@@ -8,6 +8,16 @@ services:
       - ./DGF:/DGF
     ports:
       - "8000:8000"
+  nginx:
+    build: ./nginx
+    depends_on: 
+      - dgf
+    command: nginx -g 'daemon off;'
+    ports:
+      - "80:80"
+    volumes:
+      - ./DGF/static:/var/www/static
+      - ./DGF/media:/var/www/media
 
 volumes:
   db_data:
