@@ -13,3 +13,4 @@ RUN pip install -r requirements.txt
 
 ADD . $DGF_APP
 
+RUN python manage.py collectstatic --no-input
