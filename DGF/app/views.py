@@ -19,4 +19,5 @@ import Part
 import importWebGL
 
 def index(request):
-    return HttpResponse("<h1>this is app1 homepage")
+    version = FreeCAD.Version()
+    return HttpResponse("<h1>this is app1 homepage " + str(version))
