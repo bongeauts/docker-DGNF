@@ -20,3 +20,9 @@ RUN pip install -U pyside
 ADD . $DGF_APP
 
 RUN python manage.py collectstatic --no-input
+
+RUN echo "sys.path.append('/usr/lib/freecad/lib')" >> /usr/local/lib/python2.7/site.py
+
+#RUN touch /usr/local/lib/python2.7/site-packages/example.pth
+#RUN echo "/usr/lib/freecad/lib" >> /usr/local/lib/python2.7/site-packages/example.pth
+RUN touch /usr/lib/freecad/lib/__init__.py
